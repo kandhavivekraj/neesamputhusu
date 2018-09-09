@@ -1,0 +1,27 @@
+.personDiv {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  text-align: left;
+  padding: 10px
+}
+
+.vadivuDiv {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: #e3e3ea;
+  text-align: left;
+  padding: 10px
+}
+.noImg {
+  width: 20px;
+}
+.vadivuImg {
+  width: 100px;
+}
+.text {
+  position: absolute;
+  padding-left: 10px;
+  display: inline;
+}
