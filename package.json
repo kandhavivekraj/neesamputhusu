@@ -3,6 +3,7 @@
   "name": "neesamputhusu",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://kandhavivekraj.github.io/neesamputhusu",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
