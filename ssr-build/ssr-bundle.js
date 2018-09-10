@@ -945,18 +945,26 @@ var header_Header = function (_Component) {
 
     var _this = header__possibleConstructorReturn(this, _Component.call(this, props));
 
+    _this.updateValue = function (input) {
+      if (input === '') {
+        alert('எதையாச்சும் சொல்லிட்டு enter அடிங்கப்பா'); //eslint-disable-line
+      } else {
+        _this.setState({
+          message: input
+        });
+        _this.state.messages.push(_this.state.message);
+      }
+    };
+
     _this.updateInputValue = function (evt) {
+      var inputText = void 0;
+      if (evt.type === 'click') {
+        inputText = document.getElementById('inputText').value;
+        _this.updateValue(inputText);
+      }
       if (evt.key === 'Enter') {
-        if (evt.target.value === '') {
-          alert('எதையாச்சும் சொல்லிட்டு enter அடிங்கப்பா'); //eslint-disable-line
-        } else {
-          _this.setState({
-            message: evt.target.value
-          });
-          _this.state.inputValue = '';
-          _this.state.messages.push(_this.state.message);
-          _this.setState(_this.state);
-        }
+        inputText = evt.target.value;
+        _this.updateValue(inputText);
       }
     };
 
@@ -991,7 +999,12 @@ var header_Header = function (_Component) {
     return Object(preact_min["h"])(
       'div',
       { 'class': header_style_default.a.centerTag },
-      Object(preact_min["h"])(TextField_default.a, { autoComplete: 'off', label: 'Chat With vadivelu', value: this.state.inputValue, onKeyPress: this.updateInputValue }),
+      Object(preact_min["h"])(TextField_default.a, { autoComplete: 'off', id: 'inputText', label: 'Chat With vadivelu', value: this.state.inputValue, onKeyPress: this.updateInputValue }),
+      Object(preact_min["h"])(
+        'button',
+        { onClick: this.updateInputValue },
+        ' Click \u0BAA\u0BA3\u0BCD\u0BA3\u0BC1 '
+      ),
       Object(preact_min["h"])(chatWindow_chatWindow, { inputValue: this.state.message, vadivu: 'true' }),
       Object(preact_min["h"])(
         'a',
