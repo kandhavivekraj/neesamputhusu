@@ -901,8 +901,7 @@ var chatWindow_chatWindow = function (_Component) {
             'div',
             { 'class': chatWindow_style_default.a.text },
             '\u0B8E\u0BA9\u0BCD\u0BA9 ',
-            this.props.inputValue,
-            'uuuu'
+            this.props.inputValue
           )
         )
       );
