@@ -14,22 +14,26 @@ export default class Header extends Component {
       show: false
     };
   }
-
+  updateValue = (input) => {
+    if (input === '') {
+      alert('எதையாச்சும் சொல்லிட்டு enter அடிங்கப்பா'); //eslint-disable-line
+    }
+    else {
+      this.setState({
+        message: input
+      });
+      this.state.messages.push(this.state.message);
+    }
+  }
   updateInputValue = (evt) => {
+    let inputText;
+    if(evt.type === 'click') {
+      inputText = document.getElementById('inputText').value;
+      this.updateValue(inputText);
+    }
     if (evt.key === 'Enter') {
-      if (evt.target.value === '') {
-        alert('எதையாச்சும் சொல்லிட்டு enter அடிங்கப்பா'); //eslint-disable-line
-      }
-      else {
-        this.setState({
-          message: evt.target.value,
-        });
-        this.state.inputValue = '';
-        this.state.messages.push(this.state.message);
-        this.setState(
-          this.state
-        );
-      }
+      inputText = evt.target.value;
+      this.updateValue(inputText);
     }
   };
   showMore = () => {
@@ -52,7 +56,8 @@ export default class Header extends Component {
     }
     return (
       <div class={style.centerTag}>
-        <TextField autoComplete="off" label="Chat With vadivelu" value={this.state.inputValue} onKeyPress={this.updateInputValue} />
+        <TextField autoComplete="off" id="inputText" label="Chat With vadivelu" value={this.state.inputValue} onKeyPress={this.updateInputValue} />
+        <button onClick={this.updateInputValue}> Click பண்ணு </button>
         <ChatWindow inputValue={this.state.message} vadivu="true" />
         <a onClick={this.showMore}> {showText} </a>
         {multiChat}
