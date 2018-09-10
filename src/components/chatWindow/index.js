@@ -32,7 +32,7 @@ export default class chatWindow extends Component {
   				<div class={style.vadivuDiv}>
   					<img class={style.vadivuImg} src={vadivu} alt={'vadivu'} />
   					<div class={style.text}>
-              என்ன {this.props.inputValue}uuuu
+              என்ன {this.props.inputValue}
   					</div>
   				</div>
     		</div>
